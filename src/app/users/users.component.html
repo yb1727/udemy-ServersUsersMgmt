@@ -1,0 +1,18 @@
+
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
+     <div class="list-group">
+        <!-- Adding router link, query params and fragment from the template -->
+        <a
+            [routerLink]="['/users',user.id,user.name]"
+            [queryParams]="{allowEdit: user.name === 'Yair' ? 1 : 0}"
+            fragment="loading"
+            href="#"
+            class="list-group-item"
+            *ngFor="let user of users">
+           {{ user.name }}
+        </a>
+       <router-outlet></router-outlet>
+     </div>
+  </div>
+</div>

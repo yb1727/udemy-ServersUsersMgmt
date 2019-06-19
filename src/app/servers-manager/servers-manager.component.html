@@ -1,0 +1,57 @@
+<!-- one way binding -->
+<!--
+<p>
+  <label>Enter Server Name</label>
+ <input type="text"
+        class="form-control"
+        (input)="onUpdateServerName($event)"
+ />
+-->
+
+<!-- Local reference to element DataCenterNameInput read by @ViewChild on component code-->
+<p>
+  <label>Enter Data Center Name</label>
+  <input type="text"
+         class="form-control"
+         #DataCenterNameInput
+   />
+
+   <button class="btn btn-primary"
+          (click)="onDataCenterName()"> Update Data Center </button>
+
+</p>
+    <h2> {{dataCenter}} Online server count:</h2>
+    Production : {{prodOnline}}<br/>
+    Test: {{testOnline}}
+
+<!-- two way binding of server name to text on page with ngModel-->
+<p>
+  <label>Enter Server Name</label>
+  <input type="text"
+         class="form-control"
+         [(ngModel)]="serverName"
+  />
+
+<!-- property binding and binding to event -->
+ Production <input
+    type="checkbox"
+    label="Production"
+    (change)="onServerTypeChange()"
+    checked/>
+ </p>
+ <p> server Name : {{ serverName }} </p>
+
+
+  <button class="btn btn-primary"
+          [disabled]="!allowServer"
+          (click)="onCreateServer()"> Add Server</button>
+
+ <!-- 
+     serverElement - custom property binding, parent sets child property: server ==> serverElement
+     serverStatusChanged - custom events binding, child sends (emits)  data to parent: serverStatusChanged ==> onServerStatuschanged($event)
+ -->
+<app-server 
+            (serverStatusChanged) = "onServerStatuschanged($event)"
+            *ngFor="let server of serverList"
+            [serverElement] = "server">
+</app-server>

@@ -1,0 +1,8 @@
+<p>
+  <!-- Using a service to get a sequence number-->
+  server{{ seq }} {{ serverElement.id }}  ({{serverElement.type}}) is {{ serverElement.status }}
+  <input
+    type="checkbox"
+    (change)="onServerTurnOnOff()"
+    checked/>
+</p>
