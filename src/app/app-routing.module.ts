@@ -5,6 +5,7 @@ import { UserComponent } from './user/user.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { UsersComponent } from './users/users.component';
 import { ServersManagerComponent } from './servers-manager/servers-manager.component';
+import { AuthComponent }  from './auth/auth.component' ;
 
 const appRoutes : Routes = [
   { path: '', component: ServersManagerComponent },
@@ -12,8 +13,10 @@ const appRoutes : Routes = [
     { path: ':id/:name', component: UserComponent},
     { path: ':id/:name/edit', component: UserEditComponent}
   ]},
+  { path: 'auth', component: AuthComponent},
   { path: 'page-not-found', component: PageNotFoundComponent},
   { path: '**', redirectTo:'/page-not-found'}
+  
 ]; 
 
 @NgModule({

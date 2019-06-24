@@ -12,6 +12,8 @@ import { UsersComponent } from './users/users.component';
 import { UserComponent } from './user/user.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthComponent } from './auth/auth.component';
+import { AuthService } from './auth/auth.service';
 
 
 @NgModule({
@@ -23,14 +25,15 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     UsersComponent,
     UserComponent,
     UserEditComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule
   ],
-  providers: [TenTimes, StatusCommunicator],
+  providers: [TenTimes, StatusCommunicator, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
